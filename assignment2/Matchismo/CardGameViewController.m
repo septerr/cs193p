@@ -54,22 +54,26 @@
 
 - (void) updateLastPlay:(UILabel*)label forGame:(CardMatchingGame*)game{
     LastPlayStatus *lastPlayStatus = game.lastPlayStatus;
-    switch(lastPlayStatus.status){
+    if(lastPlayStatus){
+        switch(lastPlayStatus.status){
             case match:
-            label.text = [NSString stringWithFormat:@"Matched %@ and %@ for %d point(s)!", [self joinCardContents:lastPlayStatus.otherCards], lastPlayStatus.card.contents, lastPlayStatus.score];
-            break;
+                label.text = [NSString stringWithFormat:@"Matched %@ and %@ for %d point(s)!", [self joinCardContents:lastPlayStatus.otherCards], lastPlayStatus.card.contents, lastPlayStatus.score];
+                break;
             case nomatch:
-            label.text = [NSString stringWithFormat:@"%@ and %@ do not match! %d point penalty!", [self joinCardContents:lastPlayStatus.otherCards], lastPlayStatus.card.contents, lastPlayStatus.score];
-            break;
+                label.text = [NSString stringWithFormat:@"%@ and %@ do not match! %d point penalty!", [self joinCardContents:lastPlayStatus.otherCards], lastPlayStatus.card.contents, lastPlayStatus.score];
+                break;
             case flipup:
-            label.text = [NSString stringWithFormat:@"Flipped open %@", lastPlayStatus.card.contents];
-            break;
+                label.text = [NSString stringWithFormat:@"Flipped open %@", lastPlayStatus.card.contents];
+                break;
             case flipdown:
-            label.text = [NSString stringWithFormat:@"Flipped over %@", lastPlayStatus.card.contents];
-            break;
+                label.text = [NSString stringWithFormat:@"Flipped over %@", lastPlayStatus.card.contents];
+                break;
             case noplay:
-            label.text = [NSString stringWithFormat:@"Unplayable card %@", lastPlayStatus.card.contents];
-            break;
+                label.text = [NSString stringWithFormat:@"Unplayable card %@", lastPlayStatus.card.contents];
+                break;
+        }
+    }else{
+        label.text = @"Flip a card to begin";
     }
 }
 

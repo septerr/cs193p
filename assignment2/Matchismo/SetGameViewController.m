@@ -25,39 +25,44 @@
 }
 - (void) updateLastPlay:(UILabel*)label forGame:(CardMatchingGame*)game{
     LastPlayStatus *lastPlayStatus = game.lastPlayStatus;
-    NSMutableAttributedString *str;
-    switch(lastPlayStatus.status){
-        case match:
-              str = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
-              [str appendAttributedString:[self attributedContentsOf:lastPlayStatus.otherCards]];
-            [str appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
-            [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
-            [str appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %d point(s)!", lastPlayStatus.score]]];
-            label.attributedText = str;
-            break;
-        case nomatch:
-            str = [[NSMutableAttributedString alloc] initWithString:@""];
-            [str appendAttributedString:[self attributedContentsOf:lastPlayStatus.otherCards]];
-            [str appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
-            [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
-            [str appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" do not match! %d point penalty!", lastPlayStatus.score]]];
-            label.attributedText = str;
-            break;
-        case flipup:
-            str = [[NSMutableAttributedString alloc] initWithString:@"Flipped open "];
-            [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
-            label.attributedText = str;
-            break;
-        case flipdown:
-            str = [[NSMutableAttributedString alloc] initWithString:@"Flipped over "];
-            [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
-            label.attributedText = str;
-            break;
-        case noplay:
-            str = [[NSMutableAttributedString alloc] initWithString:@"Unplayable card "];
-            [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
-            label.attributedText = str;
-            break;
+    if(lastPlayStatus){
+        NSMutableAttributedString *str;
+        switch(lastPlayStatus.status){
+            case match:
+                str = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
+                [str appendAttributedString:[self attributedContentsOf:lastPlayStatus.otherCards]];
+                [str appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+                [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
+                [str appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %d point(s)!", lastPlayStatus.score]]];
+                label.attributedText = str;
+                break;
+            case nomatch:
+                str = [[NSMutableAttributedString alloc] initWithString:@""];
+                [str appendAttributedString:[self attributedContentsOf:lastPlayStatus.otherCards]];
+                [str appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+                [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
+                [str appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" do not match! %d point penalty!", lastPlayStatus.score]]];
+                label.attributedText = str;
+                break;
+            case flipup:
+                str = [[NSMutableAttributedString alloc] initWithString:@"Flipped open "];
+                [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
+                label.attributedText = str;
+                break;
+            case flipdown:
+                str = [[NSMutableAttributedString alloc] initWithString:@"Flipped over "];
+                [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
+                label.attributedText = str;
+                break;
+            case noplay:
+                str = [[NSMutableAttributedString alloc] initWithString:@"Unplayable card "];
+                [str appendAttributedString:[self attributedContentof:(SetCard*)lastPlayStatus.card]];
+                label.attributedText = str;
+                break;
+        }
+
+    }else{
+        label.attributedText = [[NSAttributedString alloc] initWithString:@""];
     }
 }
 

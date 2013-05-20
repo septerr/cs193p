@@ -36,6 +36,7 @@
         self.matchBonus = bonus;
         self.penalty = penalty;
         self.flipCost = flipCost;
+        self.lastPlayStatus = nil;
     }
     return self;
 }
@@ -66,18 +67,6 @@
     for(Card *card in cards){
         [card setFaceUp:NO];
     }
-}
-
-- (NSString *) stringCards: (NSArray *) cards{
-    NSMutableString *cardContents = [[NSMutableString alloc] init];
-    BOOL first = true;
-    for(Card *card in cards){
-        if(!first)
-            [cardContents appendString:@", "];
-        [cardContents appendString:card.contents];
-        first = false;
-    }
-    return [NSString stringWithString: cardContents];
 }
 
 - (void) flipCardAtIndex:(NSUInteger)index{
