@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[CardMatchingGame cardCount]:CardMatchingGame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.cards count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController collectionView:numberOfItemsInSection:]:CardGameViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.game cardCount]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController addCards:]:CardGameViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.deck cardCount]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController handleTap:]:CardGameViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellIndex.item">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController flipCard:cell:index:]:CardGameViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PlayingCardView drawPips]:PlayingCardView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PlayingCardView drawRect:]:PlayingCardView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SetCardMatchingGameViewController collectionView:numberOfItemsInSection:]:SetCardMatchingGameViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[self.game faceUpPlayableCards] count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController collectionView:cellForItemAtIndexPath:]:CardGameViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CardMatchingGame flipCardAtIndex:]:CardMatchingGame.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CardGameViewController flipCard:indexPath:]:CardGameViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "card">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CardView setFaceUp:]:CardView.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

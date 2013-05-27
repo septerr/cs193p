@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="el5-gI-b49">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gLv-Qv-3od">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="el5-gI-b49" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="UpH-kF-NOd">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="sIP-C8-l3m"/>
+                        <segue destination="KBm-6W-hcS" kind="relationship" relationship="viewControllers" id="0Js-LQ-Yxw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKL-Ye-J1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1073" y="-188"/>
+        </scene>
+        <!--Playing Card Matching Game View Controller - Card Matching Game-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="PlayingCardMatchingGameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bn2-1z-HeP">
+                                <color key="backgroundColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="358" id="xfh-UJ-2Fh"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p4y-yf-Fjf">
+                                    <size key="itemSize" width="96" height="149"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="NPH-cp-wSx" customClass="PlayingCardCollectionViewCell">
+                                        <rect key="frame" x="5" y="5" width="96" height="149"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4q-8k-Iwc" customClass="PlayingCardView">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <gestureRecognizers/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="X4q-8k-Iwc" secondAttribute="trailing" constant="1" id="FbL-PC-OIj"/>
+                                            <constraint firstItem="X4q-8k-Iwc" firstAttribute="leading" secondItem="NPH-cp-wSx" secondAttribute="leading" type="default" id="ZmG-9k-IQ8"/>
+                                            <constraint firstItem="X4q-8k-Iwc" firstAttribute="centerY" secondItem="NPH-cp-wSx" secondAttribute="centerY" type="default" id="h4E-1u-uYT"/>
+                                            <constraint firstItem="X4q-8k-Iwc" firstAttribute="top" secondItem="NPH-cp-wSx" secondAttribute="top" constant="3" id="vPQ-Wh-SBk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="playingCardView" destination="X4q-8k-Iwc" id="6A2-lQ-LmN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="vp0-PH-AES"/>
+                                    <outlet property="delegate" destination="2" id="BP5-B9-B0g"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-LF-s7z">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="3Oe-ep-dgy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HW-85-rct">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="6sb-Kx-6hi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTn-Fw-aOx">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="2nq-Ti-yUy"/>
+                                    <constraint firstAttribute="height" constant="20" id="SjJ-JT-NBZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="12"/>
+                                <state key="normal" title="Deal">
+                                    <color key="titleColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dealAction:" destination="2" eventType="touchUpInside" id="T4y-eP-vpx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip a card to begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-oU-Bjb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="a7b-zV-JQM"/>
+                                    <constraint firstAttribute="height" constant="21" id="piH-Xh-nB8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.22352941179999999" green="1" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Bn2-1z-HeP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="1aO-Ak-8V2"/>
+                            <constraint firstAttribute="trailing" secondItem="5HW-85-rct" secondAttribute="trailing" constant="10" id="83U-Ll-6BX"/>
+                            <constraint firstItem="3f2-oU-Bjb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="21" id="DqV-zJ-LxH"/>
+                            <constraint firstAttribute="bottom" secondItem="xTn-Fw-aOx" secondAttribute="bottom" constant="6" id="Ief-11-qoz"/>
+                            <constraint firstItem="Bn2-1z-HeP" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Kpy-Kr-c3V"/>
+                            <constraint firstItem="3f2-oU-Bjb" firstAttribute="top" secondItem="Bn2-1z-HeP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PZa-aK-V8n"/>
+                            <constraint firstAttribute="bottom" secondItem="LdF-LF-s7z" secondAttribute="bottom" constant="4" id="SoM-Ib-z2a"/>
+                            <constraint firstItem="Bn2-1z-HeP" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dps-3V-GWB"/>
+                            <constraint firstItem="LdF-LF-s7z" firstAttribute="baseline" secondItem="xTn-Fw-aOx" secondAttribute="baseline" type="default" id="iak-PG-gpN"/>
+                            <constraint firstItem="5HW-85-rct" firstAttribute="baseline" secondItem="LdF-LF-s7z" secondAttribute="baseline" type="default" id="lVt-pg-6FJ"/>
+                            <constraint firstItem="xTn-Fw-aOx" firstAttribute="centerX" secondItem="Bn2-1z-HeP" secondAttribute="centerX" type="default" id="lqW-pP-cZj"/>
+                            <constraint firstItem="LdF-LF-s7z" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wNw-Vf-xgE"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yN3-fj-VXo" appends="YES" id="Q16-dW-Duk"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Card Matching Game" id="D2H-8H-6TY"/>
+                    <connections>
+                        <outlet property="cardCollectionView" destination="Bn2-1z-HeP" id="Q8J-4A-eic"/>
+                        <outlet property="flipsLabel" destination="LdF-LF-s7z" id="mB7-Jj-Us5"/>
+                        <outlet property="scoreLabel" destination="5HW-85-rct" id="0j4-7H-L7U"/>
+                        <outlet property="statusLabel" destination="3f2-oU-Bjb" id="bd7-o6-5WS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yN3-fj-VXo">
+                    <connections>
+                        <action selector="handleTap:" destination="2" id="IFV-Wh-Ela"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-562" y="-345"/>
+        </scene>
+        <!--Set Card Matching Game View Controller - Set Game-->
+        <scene sceneID="cax-WA-7jU">
+            <objects>
+                <viewController id="KBm-6W-hcS" customClass="SetCardMatchingGameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rGW-0b-O6K">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lPV-pt-BQy">
+                                <color key="backgroundColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="315" id="twe-sz-QMM"/>
+                                </constraints>
+                                <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kHR-QG-Etw">
+                                    <size key="itemSize" width="96" height="68"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="6" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="Dc2-gh-oBI" customClass="SetCardCollectionViewCell">
+                                        <rect key="frame" x="6" y="5" width="96" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFG-I2-KUI" customClass="SetCardView">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kFG-I2-KUI" secondAttribute="trailing" constant="1" id="DpQ-g6-gZ8"/>
+                                            <constraint firstItem="kFG-I2-KUI" firstAttribute="leading" secondItem="Dc2-gh-oBI" secondAttribute="leading" type="default" id="F7i-Nh-zNO"/>
+                                            <constraint firstItem="kFG-I2-KUI" firstAttribute="top" secondItem="Dc2-gh-oBI" secondAttribute="top" type="default" id="a0q-KH-ehK"/>
+                                            <constraint firstItem="kFG-I2-KUI" firstAttribute="bottom" secondItem="Dc2-gh-oBI" secondAttribute="bottom" type="default" id="dB5-JE-Kwk"/>
+                                        </constraints>
+                                        <size key="customSize" width="96" height="68"/>
+                                        <connections>
+                                            <outlet property="setCardView" destination="kFG-I2-KUI" id="zQb-CI-njh"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="KBm-6W-hcS" id="VCb-zX-GUh"/>
+                                    <outlet property="delegate" destination="KBm-6W-hcS" id="OFS-6i-hi7"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-sK-7Ec">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="D04-DA-7I2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Uq-BN-EYe">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="E73-VH-aRO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls6-lh-2lN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="PuL-S9-75a"/>
+                                    <constraint firstAttribute="height" constant="20" id="d6w-Qs-Eue"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="11"/>
+                                <state key="normal" title="Deal">
+                                    <color key="titleColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dealAction:" destination="KBm-6W-hcS" eventType="touchUpInside" id="6aL-Fa-rRf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a set to begin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fl-EG-2Ny">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="K7x-RD-qXr"/>
+                                    <constraint firstAttribute="height" constant="21" id="nfl-1q-r77"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44a-fx-iEg">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="7dC-Hd-Gai"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="11"/>
+                                <state key="normal" title="+cards">
+                                    <color key="titleColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="1" green="0.27051118880000002" blue="0.32482356470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMoreCards:" destination="KBm-6W-hcS" eventType="touchUpInside" id="ICH-cl-oDM"/>
+                                </connections>
+                            </button>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g7f-9p-g7J">
+                                <color key="backgroundColor" red="0.94579721719999998" green="0.93182595800000001" blue="0.8355098084" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="ugC-Nt-DPQ"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MTd-zD-pzk">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectedCard" id="qNf-WO-yPu" customClass="SetCardCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LT5-I5-SRh" customClass="SetCardView">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="LT5-I5-SRh" firstAttribute="bottom" secondItem="qNf-WO-yPu" secondAttribute="bottom" type="default" id="Q4R-tg-cxc"/>
+                                            <constraint firstItem="LT5-I5-SRh" firstAttribute="trailing" secondItem="qNf-WO-yPu" secondAttribute="trailing" type="default" id="TxO-zO-iXA"/>
+                                            <constraint firstItem="LT5-I5-SRh" firstAttribute="top" secondItem="qNf-WO-yPu" secondAttribute="top" type="default" id="ha9-Yj-g0T"/>
+                                            <constraint firstItem="LT5-I5-SRh" firstAttribute="leading" secondItem="qNf-WO-yPu" secondAttribute="leading" type="default" id="kIt-dM-hbb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="setCardView" destination="LT5-I5-SRh" id="chQ-Xn-edU"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="KBm-6W-hcS" id="vaP-xi-iCI"/>
+                                    <outlet property="delegate" destination="KBm-6W-hcS" id="TQh-Ev-yOg"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.22352941179999999" green="1" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="lPV-pt-BQy" firstAttribute="trailing" secondItem="rGW-0b-O6K" secondAttribute="trailing" type="default" id="37i-1X-hYJ"/>
+                            <constraint firstItem="Ls6-lh-2lN" firstAttribute="bottom" secondItem="jtg-sK-7Ec" secondAttribute="bottom" type="default" id="4Nj-20-p0i"/>
+                            <constraint firstItem="44a-fx-iEg" firstAttribute="baseline" secondItem="8Uq-BN-EYe" secondAttribute="baseline" type="default" id="561-D8-44q"/>
+                            <constraint firstItem="lPV-pt-BQy" firstAttribute="top" secondItem="rGW-0b-O6K" secondAttribute="top" type="default" id="5EQ-Nd-aOU"/>
+                            <constraint firstAttribute="trailing" secondItem="8Uq-BN-EYe" secondAttribute="trailing" constant="10" id="5e4-vs-NBv"/>
+                            <constraint firstAttribute="bottom" secondItem="jtg-sK-7Ec" secondAttribute="bottom" constant="4" id="8lT-Jv-j3o"/>
+                            <constraint firstItem="3fl-EG-2Ny" firstAttribute="leading" secondItem="rGW-0b-O6K" secondAttribute="leading" constant="21" id="Ael-w8-Grc"/>
+                            <constraint firstAttribute="bottom" secondItem="g7f-9p-g7J" secondAttribute="bottom" constant="41" id="F4i-XS-MMr"/>
+                            <constraint firstAttribute="trailing" secondItem="44a-fx-iEg" secondAttribute="trailing" constant="119" id="PHA-yb-CTJ"/>
+                            <constraint firstItem="lPV-pt-BQy" firstAttribute="leading" secondItem="rGW-0b-O6K" secondAttribute="leading" type="default" id="YK0-gB-9c0"/>
+                            <constraint firstItem="44a-fx-iEg" firstAttribute="baseline" secondItem="jtg-sK-7Ec" secondAttribute="baseline" type="default" id="e98-gg-rym"/>
+                            <constraint firstItem="44a-fx-iEg" firstAttribute="bottom" secondItem="Ls6-lh-2lN" secondAttribute="bottom" type="default" id="gCL-zy-E0S"/>
+                            <constraint firstItem="44a-fx-iEg" firstAttribute="top" secondItem="Ls6-lh-2lN" secondAttribute="top" type="default" id="gXa-4q-U88"/>
+                            <constraint firstItem="g7f-9p-g7J" firstAttribute="trailing" secondItem="rGW-0b-O6K" secondAttribute="trailing" type="default" id="gpN-Wt-aPB"/>
+                            <constraint firstAttribute="bottom" secondItem="3fl-EG-2Ny" secondAttribute="bottom" constant="24" id="h2a-JO-B6D"/>
+                            <constraint firstItem="g7f-9p-g7J" firstAttribute="leading" secondItem="rGW-0b-O6K" secondAttribute="leading" type="default" id="mvn-Lp-CfZ"/>
+                            <constraint firstItem="Ls6-lh-2lN" firstAttribute="leading" secondItem="rGW-0b-O6K" secondAttribute="leading" constant="122" id="p33-Me-A8K"/>
+                            <constraint firstItem="jtg-sK-7Ec" firstAttribute="leading" secondItem="rGW-0b-O6K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wkK-EW-1gi"/>
+                            <constraint firstItem="jtg-sK-7Ec" firstAttribute="baseline" secondItem="Ls6-lh-2lN" secondAttribute="baseline" type="default" id="wsN-8m-jD1"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KXf-F5-rZo" appends="YES" id="myx-6I-JLv"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Set Game" id="Ax0-T7-pFQ"/>
+                    <connections>
+                        <outlet property="cardCollectionView" destination="lPV-pt-BQy" id="kTl-h1-K6x"/>
+                        <outlet property="flipsLabel" destination="jtg-sK-7Ec" id="ECf-av-lVZ"/>
+                        <outlet property="moreCardsButton" destination="44a-fx-iEg" id="EtS-tx-tZp"/>
+                        <outlet property="scoreLabel" destination="8Uq-BN-EYe" id="gKf-Pj-7Qr"/>
+                        <outlet property="selectedCardsUICollectionView" destination="g7f-9p-g7J" id="kCp-OO-J6X"/>
+                        <outlet property="statusLabel" destination="3fl-EG-2Ny" id="n31-nq-F51"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQ7-40-q1v" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KXf-F5-rZo">
+                    <connections>
+                        <action selector="handleTap:" destination="KBm-6W-hcS" id="ww0-X0-NlS"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-555" y="252"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="CardCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardCollectionViewCell.h"/>
+        </class>
+        <class className="CardGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cardSwipe:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="dealAction:"/>
+                <relationship kind="action" name="handleTap:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="cardCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CardView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PlayingCardCollectionViewCell" superclassName="CardCollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayingCardCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="playingCardView" candidateClass="PlayingCardView"/>
+            </relationships>
+        </class>
+        <class className="PlayingCardMatchingGameViewController" superclassName="CardGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayingCardMatchingGameViewController.h"/>
+        </class>
+        <class className="PlayingCardView" superclassName="CardView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayingCardView.h"/>
+        </class>
+        <class className="SetCardCollectionViewCell" superclassName="CardCollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="setCardView" candidateClass="SetCardView"/>
+            </relationships>
+        </class>
+        <class className="SetCardMatchingGameViewController" superclassName="CardGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardMatchingGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMoreCards:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="moreCardsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectedCardsUICollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="setCardView" candidateClass="SetCardView"/>
+            </relationships>
+        </class>
+        <class className="SetCardView" superclassName="CardView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardView.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
