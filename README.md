@@ -19,4 +19,4 @@ Assignment 3:
 
 ![Graphical Set Screenshot](/screenshots/assignment3-3.png)
 
-![Graphical Set Screenshot](/screenshots/assignment3-3.png)
+![Graphical Set Screenshot](/screenshots/assignment3-4.png)
